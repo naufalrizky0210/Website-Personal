@@ -1,0 +1,918 @@
+/* Basic styling for the layout */
+.section#content {
+    padding-top: 80px; /* Adjusts for the height of the navbar to prevent overlap */
+}
+
+/* Sidebar styling with sticky position */
+.col-lg-3 {
+    position: sticky;
+    top: 80px; /* Adjusts for the height of the navbar */
+    background-color: #f4f4f4; /* Light background color */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    overflow-y: auto; /* Allows scrolling if sidebar content is long */
+    width: 250px; /* Fixed width for sidebar */
+    flex: 0 0 250px; /* Fixed flex-basis for sidebar */
+}
+
+/* Border styling for the sidebar */
+.border-end {
+    border-right: 1px solid #ddd;
+}
+
+/* Sidebar links styling */
+.list-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.list-group-item {
+    padding: 10px 20px;
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: #333;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.list-group-item:hover {
+    color: #000;
+    background-color: #e0e0e0;
+}
+
+.list-group-item.active {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* Main content styling */
+.col-lg-9 {
+    padding: 20px;
+    flex: 1; /* Ensures main content takes up remaining space */
+}
+
+/* Main content title styling */
+.col-lg-9 h4 {
+    font-size: 1.5rem; /* Adjust size as needed */
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* Adjust paragraph font size in main content */
+.col-lg-9 p {
+    font-size: 1rem; /* Adjust size as needed */
+    line-height: 1.6;
+    color: #1b1b1b;
+    margin-bottom: 1.5rem;
+}
+
+/* Flex container for row */
+.row {
+    display: flex;
+    flex-wrap: nowrap; /* Prevents wrapping */
+    align-items: flex-start;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Container full width */
+.container {
+    max-width: 100%;
+    padding: 0 15px;
+}
+
+/* Responsive layout adjustments */
+@media (min-width: 576px) {
+    .col-sm-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (min-width: 768px) {
+    .col-md-4 {
+        flex: 0 0 33.33%;
+        max-width: 33.33%;
+    }
+
+    .col-md-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+/* Apply the same background color to both sidebar and main content */
+.col-lg-3, .col-lg-9 {
+    background-color: #ffffff; /* Choose a light neutral color for a minimalist look */
+}
+
+/* Optional: Remove box shadow from sidebar for a flat, cleaner look */
+.col-lg-3 {
+    box-shadow: none;
+}
+
+/* Larger device adjustments for sidebar and main content */
+@media (min-width: 992px) {
+    .col-lg-3 {
+        max-width: 250px;
+        flex: 0 0 250px;
+    }
+
+    .col-lg-9 {
+        max-width: calc(100% - 250px); /* Adjusts to take remaining space */
+        flex: 1;
+    }
+}
+
+/* Utility classes */
+.d-flex {
+    display: flex;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.text-primary {
+    color: #007bff;
+}
+
+/* Sidebar Section Offsets */
+.content-section {
+    scroll-margin-top: 100px; /* Offset for fixed navbar */
+    padding-top: 20px; /* Optional spacing inside the section */
+    margin-bottom: 50px; /* Add spacing between sections */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Styling khusus untuk gambar bjc.jpg */
+#bjc-image {
+    width: 100%; /* Agar gambar memenuhi kontainer */
+    height: 350px; /* Tentukan tinggi yang diinginkan */
+    object-fit: cover; /* Potong gambar agar sesuai dengan area */
+    border-radius: 15px; /* Melengkungkan tepi gambar */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Memberikan bayangan lembut */
+    margin-bottom: 20px; /* Memberikan jarak bawah */
+}
+
+/* Styling for the specific image caption */
+#bjc-caption {
+    display: block;
+    text-align: center;
+    color: #808080; /* Abu-abu */
+    font-size: 0.85rem; /* Ukuran font kecil */
+    font-style: italic;
+    margin-top: -15px; /* Mendekatkan ke gambar */
+    margin-bottom: 20px; /* Jarak bawah dari heading berikutnya */
+}
+
+#project-headline {
+    text-align: center; /* Memposisikan teks di tengah */
+    font-size: 1.5rem; /* Ukuran font headline */
+    font-weight: bold; /* Teks tebal */
+    color: #1f2937; /* Warna teks */
+    margin-bottom: 15px; /* Memberikan jarak bawah antara headline dan gambar */
+    margin-top: 10px; /* Memberikan jarak atas antara headline dan elemen di atasnya */
+}
+
+/* Styling untuk daftar utama (ordered list) di project */
+.project-key-points {
+    margin-left: 20px; /* Memberikan indentasi */
+    padding-left: 0; /* Menghilangkan padding default */
+    list-style-type: decimal; /* Angka sebagai penanda */
+    line-height: 1.8; /* Spasi antar baris */
+}
+
+/* Styling untuk nested list (unordered list) di project */
+.project-features-list {
+    margin-left: 30px; /* Indentasi lebih jauh */
+    list-style-type: disc; /* Bullet point sebagai penanda */
+    margin-top: 10px; /* Jarak ke atas */
+    display: block; /* Ensure vertical alignment */
+    width: 100%; /* Prevent horizontal spreading */
+}
+
+/* Styling untuk item list di daftar utama */
+.project-key-points li {
+    margin-bottom: 10px; /* Jarak antar item */
+}
+
+/* Styling untuk item list di nested list */
+.project-features-list li {
+    margin-bottom: 8px; /* Jarak antar item di nested list */
+    display: list-item; /* Ensure list items are block elements */
+    width: 100%; /* Take up the full width of the container */
+}
+
+/* Styling untuk teks bold di daftar */
+.project-key-points strong,
+.project-features-list strong {
+    color: #1f2937; /* Warna teks bold */
+    font-weight: bold;
+}
+
+/* Additional refinement for nested list alignment */
+.project-features-list li strong {
+    display: block; /* Ensure the bold text is on its own line */
+    margin-bottom: 5px; /* Add spacing below the title */
+}
+
+/* Styling for nested list text after the bold heading */
+.project-features-list li {
+    line-height: 1.6; /* Adjust line spacing for better readability */
+}
+
+.project-key-points {
+    margin-left: 20px;
+    padding-left: 0;
+    list-style-type: decimal;
+    line-height: 1.8;
+}
+
+.project-key-points li {
+    margin-bottom: 15px;
+}
+
+.project-key-points img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+.project-key-points p {
+    line-height: 1.6;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Styling untuk daftar Problem Domain */
+.problem-domain-list {
+    margin-left: 20px; /* Indentation for the list */
+    list-style-type: disc; /* Add bullet points */
+    padding-left: 20px; /* Add spacing for bullets */
+    margin-top: 10px; /* Add space above the list */
+    display: block; /* Ensure the list is block-level */
+    width: 100%; /* Prevent horizontal spreading */
+}
+
+.problem-domain-list li {
+    display: list-item; /* Ensure each item takes a new line */
+    margin-bottom: 10px; /* Add space between items */
+    line-height: 1.6; /* Adjust spacing between lines */
+    width: 100%; /* Ensure full-width alignment */
+}
+
+/* Styling untuk daftar Business Rules */
+.business-rules-list {
+    margin-left: 20px; /* Indentation for the list */
+    list-style-type: disc; /* Add bullet points */
+    padding-left: 20px; /* Add spacing for bullets */
+    margin-top: 10px; /* Add space above the list */
+    display: block; /* Ensure the list is block-level */
+    width: 100%; /* Prevent horizontal spreading */
+}
+
+.business-rules-list li {
+    display: list-item; /* Ensure each item takes a new line */
+    margin-bottom: 10px; /* Add space between items */
+    line-height: 1.6; /* Adjust spacing between lines */
+    width: 100%; /* Ensure full-width alignment */
+}
+
+/* Styling for Entity and Attributes Section */
+
+/* Unique styling for bridging statement */
+.entity-attributes-bridging {
+    margin-left: 0px;/* Add margin to the left */
+    padding-top: 15px;
+    line-height: 1.8; /* Adjust line spacing for readability */
+    font-size: 1rem; /* Ensure consistent font size */
+    color: #333; /* Standard text color */
+    text-align: justify; /* Align the text to both the left and right for a polished look */
+}
+
+.entity-attributes-list {
+    margin-left: 20px; /* Add indentation */
+    list-style-type: disc; /* Use bullet points */
+    padding-left: 20px; /* Spacing for bullets */
+    margin-top: 10px; /* Add spacing above the list */
+    display: block; /* Ensure proper alignment */
+    width: 100%; /* Prevent horizontal spreading */
+    text-align: left;
+}
+
+.entity-attributes-list li {
+    display: list-item; /* Ensure vertical alignment */
+    margin-bottom: 10px; /* Add space between items */
+    line-height: 1.6; /* Adjust spacing for readability */
+    width: 100%; /* Use full width */
+}
+
+.entity-attributes-list li strong {
+    color: #1f2937; /* Bold text color */
+    font-weight: bold; /* Emphasize bold text */
+}
+
+.entity-attributes-list li code {
+    background-color: #f8f9fa; /* Light gray background for code */
+    padding: 2px 4px; /* Add padding around code text */
+    border-radius: 4px; /* Rounded edges for code */
+    font-family: monospace; /* Use monospace font for code */
+    color: #d63384; /* Highlight code in a distinct color */
+}
+
+/* For paragraphs under Constraints */
+.constraint-bridging {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 1.6; /* Spasi antar baris */
+    text-align: justify; /* Rata kiri-kanan */
+    font-size: 1rem; /* Ukuran teks */
+    color: #333; /* Warna teks */
+}
+
+/* Styling for the ERD description */
+.erd-description {
+    margin-top: 10px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #1b1b1b;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+.erd-key-points {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-top: 15px;
+    margin-bottom: 20px; /* Match spacing with description */
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.8;
+    display: block;
+}
+
+.erd-key-points li {
+    display: list-item;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.erd-key-points li code {
+    background-color: #f8f9fa;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #d63384;
+}
+
+/* Styling for ERD Summary */
+.erd-summary {
+    font-size: 1rem; /* Adjust font size */
+    line-height: 1.6; /* Space between lines */
+    text-align: justify; /* Align text to both sides */
+    margin: 15px 0; /* Add vertical spacing */
+    color: #1b1b1b; /* Text color */
+}
+
+/* Styling for ERD Facilitates Section */
+.erd-facilitates {
+    display: list-item; 
+    margin-top: 20px; /* Space above the list */
+    padding-left: 20px; /* Ensure bullets align well */
+    gap: 15px; /* Space between items */
+}
+
+.erd-facilitates li {
+    list-style-type: disc;
+    font-size: 1rem; /* Font size for each feature */
+    line-height: 1.8; /* Line height for readability */
+    color: #1b1b1b; /* Text color */
+    margin-bottom: 10px; /* Add space between items */
+    text-align: left; /* Align text to the left */
+}
+
+/* Add styling for bold feature titles */
+.erd-facilitates li strong {
+    display: block; /* Ensure the title is on its own line */
+    margin-bottom: 5px; /* Add space below the title */
+    font-weight: bold; /* Emphasize the title */
+}
+
+/* Optional: Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .erd-summary,
+    .erd-facilitates li {
+        font-size: 0.9rem; /* Reduce font size slightly */
+        line-height: 1.4; /* Adjust line spacing */
+    }
+}
+
+/* Styling for ERD/RDBMS Images */
+.img-fluid {
+    max-width: 100%; /* Ensures the image scales within its container */
+    height: auto; /* Maintains the aspect ratio */
+    border-radius: 10px; /* Adds rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a soft shadow */
+    margin-bottom: 20px; /* Adds spacing below the image */
+}
+
+/* Center align the image container */
+.text-center img {
+    display: block; /* Ensures the image is treated as a block */
+    margin-left: auto; /* Aligns image center horizontally */
+    margin-right: auto;
+}
+
+/* Styling for rdbms Summary */
+.rdbms-summary {
+    font-size: 1rem; /* Adjust font size */
+    line-height: 1.6; /* Space between lines */
+    text-align: justify; /* Align text to both sides */
+    margin: 15px 0; /* Add vertical spacing */
+    color: #1b1b1b; /* Text color */
+}
+
+/* Styling for RDBMS PK FK Section */
+.rdbms-pk-fk {
+    display: list-item; 
+    margin-top: 20px; /* Space above the list */
+    padding-left: 20px; /* Ensure bullets align well */
+    gap: 15px; /* Space between items */
+}
+
+.rdbms-pk-fk li {
+    list-style-type: disc;
+    font-size: 1rem; /* Font size for each feature */
+    line-height: 1.8; /* Line height for readability */
+    color: #1b1b1b; /* Text color */
+    margin-bottom: 10px; /* Add space between items */
+    text-align: left; /* Align text to the left */
+}
+
+/* Add styling for bold feature titles */
+.rdbms-pk-fk li strong {
+    display: block; /* Ensure the title is on its own line */
+    margin-bottom: 5px; /* Add space below the title */
+    font-weight: bold; /* Emphasize the title */
+}
+.rdbms-pk-fk li code {
+    background-color: #f8f9fa;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #d63384;
+}
+
+/* Styling untuk Data Definition Language */
+.ddl-key-points {
+    margin-left: 20px; /* Memberikan indentasi */
+    padding-left: 0; /* Menghilangkan padding default */
+    list-style-type: decimal; /* Angka sebagai penanda */
+    line-height: 1.8; /* Spasi antar baris */
+}
+
+.ddl-key-points li strong {
+    display: block; /* Pastikan elemen mengambil satu baris penuh */
+    margin-bottom: 15px; /* Tambahkan jarak bawah */
+}
+
+.img-fluid {
+    margin-top: 10px; /* Tambahkan jarak atas pada gambar */
+}
+
+.ddl-bridging {
+    margin-left: 0px;/* Add margin to the left */
+    padding-top: 15px;
+    line-height: 1.8; /* Adjust line spacing for readability */
+    font-size: 1rem; /* Ensure consistent font size */
+    color: #333; /* Standard text color */
+    text-align: justify; /* Align the text to both the left and right for a polished look */
+}
+
+/* Styling for ddl Section */
+.ddl-table {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-top: 15px;
+    margin-bottom: 20px; /* Match spacing with description */
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.8;
+    display: block;
+}
+
+.ddl-table li {
+    display: list-item;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.ddl-table li strong {
+    display: inline; /* Pastikan elemen tetap di baris yang sama */
+    font-weight: bold; /* Tetapkan font-weight jika diperlukan */
+    margin-right: 5px; /* Tambahkan sedikit jarak antara <strong> dan teks berikutnya */
+}
+
+.ddl-table li code {
+    background-color: #f8f9fa;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #d63384;
+}
+
+/* Styling for ddl user column Section */
+.ddl-user-table {
+    margin-left: 0px;/* Add margin to the left */
+    padding-top: 15px;
+    line-height: 1.8; /* Adjust line spacing for readability */
+    font-size: 1rem; /* Ensure consistent font size */
+    color: #333; /* Standard text color */
+    text-align: left; /* Align the text to both the left and right for a polished look */
+}
+
+.ddl-user-table code {
+    background-color: #f8f9fa;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #7700ff;
+}
+
+.ddl-user-constraints {
+    margin-left: 0px;/* Add margin to the left */
+    padding-top: 5px;
+    line-height: 1.8; /* Adjust line spacing for readability */
+    font-size: 1rem; /* Ensure consistent font size */
+    color: #333; /* Standard text color */
+    text-align: left; /* Align the text to both the left and right for a polished look */
+}
+
+.ddl-user-constraints code {
+    background-color: #f8f9fa;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #d63384;
+}
+
+/* Styling for ddl customer column Section */
+.customer-ddl {
+    margin-left: 0px;/* Add margin to the left */
+    padding-top: 15px;
+    line-height: 1.8; /* Adjust line spacing for readability */
+    font-size: 1rem; /* Ensure consistent font size */
+    color: #333; /* Standard text color */
+    text-align: justify; /* Align the text to both the left and right for a polished look */
+}
+
+.customer-ddl code {
+    background-color: #f8f9fa;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #7700ff;
+}
+
+.customer-ddl-constraints {
+    margin-left: 0px;/* Add margin to the left */
+    padding-top: 5px;
+    line-height: 1.8; /* Adjust line spacing for readability */
+    font-size: 1rem; /* Ensure consistent font size */
+    color: #333; /* Standard text color */
+    text-align: justify; /* Align the text to both the left and right for a polished look */
+}
+
+.customer-ddl-constraints code {
+    background-color: #f8f9fa;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #d63384;
+}
+
+/* Styling for ddl orderdetail column Section */
+.orderdetail-ddl {
+    margin-left: 0px;/* Add margin to the left */
+    padding-top: 15px;
+    line-height: 1.8; /* Adjust line spacing for readability */
+    font-size: 1rem; /* Ensure consistent font size */
+    color: #333; /* Standard text color */
+    text-align: justify; /* Align the text to both the left and right for a polished look */
+}
+
+.orderdetail-ddl code {
+    background-color: #f8f9fa;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #7700ff;
+}
+
+.orderdetail-constraints {
+    margin-left: 0px;/* Add margin to the left */
+    padding-top: 5px;
+    line-height: 1.8; /* Adjust line spacing for readability */
+    font-size: 1rem; /* Ensure consistent font size */
+    color: #333; /* Standard text color */
+    text-align: justify; /* Align the text to both the left and right for a polished look */
+}
+
+.orderdetail-constraints code {
+    background-color: #f8f9fa;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #d63384;
+}
+
+.orderdetail-alter {
+    margin-left: 0px;/* Add margin to the left */
+    padding-top: 5px;
+    line-height: 1.8; /* Adjust line spacing for readability */
+    font-size: 1rem; /* Ensure consistent font size */
+    color: #333; /* Standard text color */
+    text-align: justify; /* Align the text to both the left and right for a polished look */
+}
+
+.orderdetail-alter code {
+    background-color: #f8f9fa;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #7700ff;
+}
+
+.orderdetail-fk {
+    margin-left: 0px;/* Add margin to the left */
+    padding-top: 5px;
+    line-height: 1.8; /* Adjust line spacing for readability */
+    font-size: 1rem; /* Ensure consistent font size */
+    color: #333; /* Standard text color */
+    text-align: justify; /* Align the text to both the left and right for a polished look */
+}
+
+.orderdetail-fk code {
+    background-color: #f8f9fa;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #d63384;
+}
+
+.bold-text-fk {
+    font-weight: bold;
+    display: inline; /* Ensure it's inline */
+}
+
+/* Styling for ddl sales transactions column Section */
+
+.salestr-ddl {
+    margin-left: 0px;/* Add margin to the left */
+    padding-top: 15px;
+    line-height: 1.8; /* Adjust line spacing for readability */
+    font-size: 1rem; /* Ensure consistent font size */
+    color: #333; /* Standard text color */
+    text-align: justify; /* Align the text to both the left and right for a polished look */
+}
+
+.salestr-ddl code {
+    background-color: #f8f9fa;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #7700ff;
+}
+
+.salestr-constraints {
+    margin-left: 0px;/* Add margin to the left */
+    padding-top: 5px;
+    line-height: 1.8; /* Adjust line spacing for readability */
+    font-size: 1rem; /* Ensure consistent font size */
+    color: #333; /* Standard text color */
+    text-align: justify; /* Align the text to both the left and right for a polished look */
+}
+
+.salestr-constraints code {
+    background-color: #f8f9fa;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #d63384;
+}
+
+.salestr-alter {
+    margin-left: 0px;/* Add margin to the left */
+    padding-top: 5px;
+    line-height: 1.8; /* Adjust line spacing for readability */
+    font-size: 1rem; /* Ensure consistent font size */
+    color: #333; /* Standard text color */
+    text-align: justify; /* Align the text to both the left and right for a polished look */
+}
+
+.salestr-alter code {
+    background-color: #f8f9fa;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #7700ff;
+}
+
+.bold-text-tr {
+    font-weight: bold;
+    display: inline; /* Ensure it's inline */
+}
+
+
+/* Styling untuk Data Definition Language */
+.dml-bridging {
+    margin-left: 0px;/* Add margin to the left */
+    padding-top: 15px;
+    line-height: 1.8; /* Adjust line spacing for readability */
+    font-size: 1rem; /* Ensure consistent font size */
+    color: #333; /* Standard text color */
+    text-align: justify; /* Align the text to both the left and right for a polished look */
+}
+
+.dml-bridging code {
+    background-color: #f8f9fa;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #7700ff;
+}
+
+.dml-key-points {
+    margin-left: 20px; /* Memberikan indentasi */
+    padding-left: 0; /* Menghilangkan padding default */
+    list-style-type: decimal; /* Angka sebagai penanda */
+    line-height: 1.8; /* Spasi antar baris */
+}
+
+.dml-key-points li strong {
+    display: block; /* Pastikan elemen mengambil satu baris penuh */
+    margin-bottom: 15px; /* Tambahkan jarak bawah */
+}
+
+.dml-user {
+    margin-left: 0px;/* Add margin to the left */
+    padding-top: 15px;
+    line-height: 1.8; /* Adjust line spacing for readability */
+    font-size: 1rem; /* Ensure consistent font size */
+    color: #333; /* Standard text color */
+    text-align: justify; /* Align the text to both the left and right for a polished look */
+}
+
+.dml-user code {
+    background-color: #f8f9fa;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #d63384;
+}
+
+.customer-dml {
+    margin-left: 0px;/* Add margin to the left */
+    padding-top: 15px;
+    line-height: 1.8; /* Adjust line spacing for readability */
+    font-size: 1rem; /* Ensure consistent font size */
+    color: #333; /* Standard text color */
+    text-align: justify; /* Align the text to both the left and right for a polished look */
+}
+
+.customer-dml code {
+    background-color: #f8f9fa;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #d63384;
+}
+
+.orderdetail-dml {
+    margin-left: 0px;/* Add margin to the left */
+    padding-top: 15px;
+    line-height: 1.8; /* Adjust line spacing for readability */
+    font-size: 1rem; /* Ensure consistent font size */
+    color: #333; /* Standard text color */
+    text-align: justify; /* Align the text to both the left and right for a polished look */
+}
+
+.orderdetail-dml code {
+    background-color: #f8f9fa;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #d63384;
+}
+
+.bold-text-oddml {
+    font-weight: bold;
+    display: inline; /* Ensure it's inline */
+}
+
+.salestr-dml {
+    margin-left: 0px;/* Add margin to the left */
+    padding-top: 15px;
+    line-height: 1.8; /* Adjust line spacing for readability */
+    font-size: 1rem; /* Ensure consistent font size */
+    color: #333; /* Standard text color */
+    text-align: justify; /* Align the text to both the left and right for a polished look */
+}
+
+.salestr-dml code {
+    background-color: #f8f9fa;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #d63384;
+}
+
+.bold-text-stdml {
+    font-weight: bold;
+    display: inline; /* Ensure it's inline */
+}
+
+/* Styling untuk SQL Function */
+.sql-bridging {
+    margin-left: 0px;/* Add margin to the left */
+    padding-top: 15px;
+    line-height: 1.8; /* Adjust line spacing for readability */
+    font-size: 1rem; /* Ensure consistent font size */
+    color: #333; /* Standard text color */
+    text-align: justify; /* Align the text to both the left and right for a polished look */
+}
+
+.sql-bridging code {
+    background-color: #f8f9fa;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #7700ff;
+}
+
+.sql-key-question {
+    margin-left: 20px; /* Memberikan indentasi */
+    padding-left: 0; /* Menghilangkan padding default */
+    list-style-type: decimal; /* Angka sebagai penanda */
+    line-height: 1.8; /* Spasi antar baris */
+}
+
+.sql-key-question strong {
+    display: block; /* Pastikan elemen mengambil satu baris penuh */
+    margin-bottom: 15px; /* Tambahkan jarak bawah */
+}
+
+.sql-1 {
+    margin-left: 0px;/* Add margin to the left */
+    padding-top: 15px;
+    line-height: 1.8; /* Adjust line spacing for readability */
+    font-size: 1rem; /* Ensure consistent font size */
+    color: #333; /* Standard text color */
+    text-align: justify; /* Align the text to both the left and right for a polished look */
+}
+
+.sql-1-1 {
+    margin-left: 0px;/* Add margin to the left */
+    padding-top: 0px;
+    line-height: 1.8; /* Adjust line spacing for readability */
+    font-size: 1rem; /* Ensure consistent font size */
+    color: #333; /* Standard text color */
+    text-align: justify; /* Align the text to both the left and right for a polished look */
+}
+
+.sql-1-1 code {
+    background-color: #f8f9fa;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #7700ff;
+}
+
+#s1-image {
+    width: 300px; /* Untuk gambar dengan ID s1-image */
+    height: auto;
+  }
+
+  #s1-1-image {
+    width: 300px; /* Untuk gambar dengan ID s1-image */
+    height: auto;
+    margin-bottom: 40px !important;
+  }

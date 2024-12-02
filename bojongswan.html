@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CSS -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" /> <!-- Main CSS for global styling -->
+    <link rel="stylesheet" href="bojongswan.css" /> <!-- Project-specific CSS -->
+    <title>Bojongswan Coffee Inventory & Financial Management System</title>
+</head>
+<body>
+    <!-- Navigation -->
+<nav>
+    <div class="nav__content">
+        <div class="logo"><a href="#">Naufal Rizky Radea</a></div>
+        <label for="check" class="checkbox">
+            <i class="ri-menu-line"></i>
+        </label>
+        <input type="checkbox" name="check" id="check" />
+        <ul>
+            <li><a href="index.html#">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#experience">Experience</a></li>
+            <li><a href="index.html#portfolio">Portfolio</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+    <br>
+
+    <!-- Main Content Section -->
+    <section class="section" id="content">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar -->
+                <div class="col-lg-3 col-md-4 col-12 border-end">
+                    <div class="list-group">
+                        <a href="#overview" class="list-group-item list-group-item-action">Project Overview</a>
+                        <a href="#erd-eerd-analysis" class="list-group-item list-group-item-action">ERD/EERD Analysis</a>
+                        <a href="#rdbms" class="list-group-item list-group-item-action">RDBMS Design</a>
+                        <a href="#ddl" class="list-group-item list-group-item-action">Database DDL</a>
+                        <a href="#dml" class="list-group-item list-group-item-action">Database DML</a>
+                        <a href="#database-sql-function" class="list-group-item list-group-item-action">Database SQL Function</a>
+                        <a href="#conclusion" class="list-group-item list-group-item-action">Conclusion</a>
+                    </div>
+                </div>
+                
+                <!-- Main Content -->
+                <div class="col-lg-9 col-md-8 col-12">
+                    <div id="overview" class="content-section">
+                        <h3 id="project-headline" class="headline">Inventory & Finance System for Bojongswan Coffee</h3>
+                        <img src="bjc.jpg" class="img-fluid custom-image" id="bjc-image" alt="Project">
+                        <small id="bjc-caption" class="image-caption">Bojongswan Coffeeshop Illustration</small>
+                        <h4 class="fw-bold text-primary">Project Overview</h4>
+                        <p>Bojongswan Coffee is a small but rapidly growing business that faces several challenges in managing its inventory and finances effectively. These challenges include difficulties in tracking stock, recording sales transactions, and generating accurate financial reports.
+
+                            The objective of this project is to design and develop a database application tailored for inventory and financial management at Bojongswan Coffee. This application aims to empower the business owner by providing tools to efficiently manage stock, streamline sales recording, 
+                            and produce accurate financial reports.
+
+                        </p>
+                        <p>Key Points of the Project Overview:</p>
+                        <ol class="project-key-points">
+                            <li>
+                                <strong>App Idea</strong>
+                                <p>
+                                    This application will serve as an all-in-one solution for inventory and financial management, enabling Bojongswan Coffee to track stock, record sales transactions, manage customer and supplier data, and generate financial reports.
+                                </p>
+                            </li>
+                            <li>
+                                <strong>Target User</strong>
+                                <p>
+                                    Owners and Managers of Bojongswan Coffee, as well as employees responsible for stock and sales management.
+                                </p>
+                            </li>
+                            <li>
+                                <strong>Key Features</strong>
+                                <ul class="project-features-list">
+                                    <li><strong>Inventory Management:</strong> Track stock levels, manage reorder points, and receive notifications when stock is low.</li>
+                                    <li><strong>Sales Tracking:</strong> Record sales transactions, generate invoices, and track customer purchases.</li>
+                                    <li><strong>Financial Reporting:</strong> Generate financial reports, sales reports, and inventory reports.</li>
+                                </ul>
+                            </li>
+                        </ol>
+
+                    </div>
+                    <div id="erd-eerd-analysis" class="content-section">
+
+                        <h4 class="fw-bold text-primary">ERD/EERD Analysis</h4>
+                        <ol class="project-key-points">
+                            <li>
+                                <strong>Problem Domain</strong>
+                                <ul class="problem-domain-list">
+                                    <li>Each User has UserID, Name, Email. A SalesTransaction is created by a User (e.g., a cashier or manager).</li>
+                                    <li>Each SalesTransaction has TransactionID, Date, TotalAmount.</li>
+                                    <li>Each SalesTransaction may involve a Customer.</li>
+                                    <li>Each Customer has CustomerID, Name, ContactInfo.</li>
+                                    <li>Each SalesTransaction must include one or more OrderDetail.</li>
+                                    <li>Each OrderDetail has OrderID, ProductID, Quantity, Price.</li>
+                                </ul>
+                            </li>
+                            
+                            <li>
+                                <strong>Business Rules</strong>
+                                <ul class="business-rules-list">
+                                    <li>A SalesTransaction must be recorded by a User (e.g., a cashier or manager). The ‘UserID’ in the SalesTransaction table is a foreign key that references the ‘User’ table, indicating which user processed the transaction </li>
+                                    <li>A SalesTransaction may involve a Customer. The ‘CustomerID’ in the SalesTransaction table is a foreign key that references the Customer table, indicating the customer who made the purchase </li>
+                                    <li>Each SalesTransaction can have many OrderDetails. The ‘TransactionID’ in the OrderDetail table is a foreign key that references the SalesTransaction table, indicating the details of each product sold in the transaction. </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Entity and Attributes</strong>
+                                <div class="text-center">
+                                    <img src="7.png" alt="Entity and Attributes" class="img-fluid mt-3">
+                                    <p class="entity-attributes-bridging">
+                                        To effectively manage inventory and finances, it is crucial to define the key entities and their attributes within the system. Each entity represents a fundamental component of the business process, while its attributes capture specific details necessary for accurate tracking and reporting. 
+                                        Below is an overview of the entities and attributes designed for the Inventory and Finance System for Bojongswan Coffee.
+                                    </p>
+                                    <ul class="entity-attributes-list">
+                                        <li>
+                                            <strong>User:</strong> Represents individuals (e.g., cashiers, managers) interacting with the system. Each user is uniquely identified by <code>UserID</code> and associated with attributes such as <code>Name</code> and <code>Email</code>.
+                                        </li>
+                                        <li>
+                                            <strong>Customer:</strong> Represents the customers of Bojongswan Coffee. Each customer is identified by a unique <code>CustomerID</code> and includes attributes like <code>Name</code> and <code>ContactInfo</code>, which facilitate better customer tracking.
+                                        </li>
+                                        <li>
+                                            <strong>SalesTransaction:</strong> This entity captures every sale made at the store. It is uniquely identified by <code>TransactionID</code> and contains attributes such as <code>Date</code> and <code>TotalAmount</code> to ensure accurate financial records.
+                                        </li>
+                                        <li>
+                                            <strong>OrderDetail:</strong> Represents the details of products sold in each transaction. Each <code>OrderDetail</code> includes <code>OrderID</code>, <code>ProductID</code>, <code>Quantity</code>, and <code>Price</code> to ensure complete documentation of individual orders.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <strong>Constraints</strong>
+                                <div class="text-center">
+                                    <img src="8.png" alt="Constraints Diagram" class="img-fluid mt-3">
+                                    <p class="constraint-bridging">
+                                        Constraints help define the rules governing relationships between entities in a database. For example, in the relationship between the <strong>User</strong> and <strong>SalesTransaction</strong> entities, one <strong>User</strong> may process many <strong>SalesTransaction</strong> records. This relationship has a cardinality of <strong>1:N</strong>, meaning "one-to-many," and a participation of <strong>Total:Total</strong>, indicating that every <strong>User</strong> must participate in at least one <strong>SalesTransaction</strong> and vice versa.
+                                    </p>
+                                    <p class="constraint-bridging">
+                                        Cardinality defines the number of instances of one entity that can or must be associated with instances of another entity. For instance, the <strong>1:N</strong> cardinality in the <strong>User</strong>-<strong>SalesTransaction</strong> relationship shows that a single <strong>User</strong> can process multiple <strong>SalesTransactions</strong>.
+                                    </p>
+                                    <p class="constraint-bridging">
+                                        Participation defines the extent to which an entity must be involved in a relationship. Total participation in the <strong>User</strong>-<strong>SalesTransaction</strong> relationship (<strong>Total:Total</strong>) means that every <strong>User</strong> must process at least one <strong>SalesTransaction</strong>, and every <strong>SalesTransaction</strong> must be linked to a <strong>User</strong>.
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <strong>ERD Bojongswan Coffee App</strong>
+                                <div class="text-center">
+                                    <img src="9.png" alt="ERD Bojongswan Coffee App" class="img-fluid mt-3">
+                                    <p class="erd-description">
+                                        The Entity-Relationship Diagram (ERD) for the Bojongswan Coffee App illustrates the relationships between key entities in the inventory and financial management system. It highlights how data is structured, interconnected, and supports seamless operations. 
+                                        Here we define the entities within our ERD design
+                                    </p>
+                                    <ul class="erd-key-points">
+                                        <li><strong>User:</strong> Staff managing the system, uniquely identified by <code>UserID</code>, with attributes <code>Name</code> and <code>Email</code>.</li>
+                                        <li><strong>Customer:</strong> Tracks customer details such as <code>CustomerID</code>, <code>Name</code>, and <code>ContactInfo</code>.</li>
+                                        <li><strong>SalesTransaction:</strong> Represents individual sales, uniquely identified by <code>TransactionID</code>, with attributes <code>Date</code> and <code>TotalAmount</code>.</li>
+                                        <li><strong>OrderDetail:</strong> Contains details of items in a transaction, including <code>OrderID</code>, <code>ProductID</code>, <code>Quantity</code>, and <code>Price</code>.</li>
+                                    </ul>
+                                    <p class="erd-summary">
+                                        By designing this ERD, the Bojongswan Coffee App ensures that all critical data relationships are effectively captured. This design simplifies database maintenance, improves data accuracy, and ensures that each entity interacts seamlessly with others in the system.
+                                        The ERD also supports the implementation of key business processes such as inventory tracking, sales monitoring, and customer relationship management. It enables real-time updates across the system, ensuring that sales and stock levels are synchronized.
+                                        With a robust ERD design, the Bojongswan Coffee App achieves several business benefits:
+                                    </p>
+                                    <ul class="erd-facilitates">
+                                        <li class="erd-feature">
+                                            <strong>Streamlined Operations:</strong>
+                                            Ensures real-time updates between sales and inventory.
+                                        </li>
+                                        <li class="erd-feature">
+                                            <strong>Enhanced Traceability:</strong>
+                                            Links every transaction to a staff member for accountability.
+                                        </li>
+                                        <li class="erd-feature">
+                                            <strong>Data Accuracy:</strong>
+                                            Prevents duplication and inconsistencies through well-defined relationships.
+                                        </li>
+                                    </ul>                                    
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                    
+                    <div id="rdbms" class="content-section">
+                        <h4 class="fw-bold text-primary">RDBMS Design</h4>
+                        <ol class="project-key-points"></ol>
+                        <div class="text-center">
+                            <img src="10.png" alt="rdbms" class="img-fluid mt-3">
+                        </div>
+                        <p class="rdbms-description">
+                            The Relational Database Management System (RDBMS) design for the Bojongswan Coffee App establishes a structured framework for organizing and managing data efficiently.
+                            it is essential to define Primary Keys (PK) and Foreign Keys (FK), which are the building blocks of relational data models.
+                        </p>
+                        <ul class="rdbms-pk-fk">
+                            <li class="rdbms-pk">
+                                <strong>Primary Key:</strong>
+                                A Primary Key is a unique identifier for a record within a table. It ensures that every row in a table can be uniquely identified and prevents duplicate data. For example:
+                                In the User table, the <code>UserID</code> serves as the primary key.
+                                In the Customer table, the <code>CustomerID</code> is the unique identifier.
+                                Other tables like SalesTransaction and OrderDetail use <code>TransactionID</code> and <code>OrderID</code>as primary keys, respectively. 
+                            </li>
+                            <li class="rdbms-fk">
+                                <strong>Foreign Key:</strong>
+                                A Foreign Key is an attribute in one table that establishes a link to the Primary Key in another table. It enforces relationships between entities and maintains referential integrity.
+                                For example:
+                                The <code>UserID</code> in the SalesTransaction table references the <code>UserID</code> in the User table.
+                                The <code>CustomerID</code> in the SalesTransaction table links to the Customer table.
+                                The <code>TransactionID</code> in the OrderDetail table connects to the SalesTransaction table.
+                            </li>
+                        </ul>   
+                    </div>
+                    
+                    <div id="ddl" class="content-section">
+                        <h4 class="fw-bold text-primary">Database DDL</h4>
+                        <p class="ddl-bridging">
+                            In this section, we define the Entities' Table, specifying its columns, data types, and constraints. The table includes the following attributes:
+                        </p>
+                        <ul class="ddl-table">
+                            <li><strong>User:</strong> Staff managing the system, uniquely identified by <code>UserID</code>, with attributes <code>Name</code> and <code>Email</code>.</li>
+                            <li><strong>Customer:</strong> Tracks customer details such as <code>CustomerID</code>, <code>Name</code>, and <code>ContactInfo</code>.</li>
+                            <li><strong>SalesTransaction:</strong> Represents individual sales, uniquely identified by <code>TransactionID</code>, with attributes <code>Date</code> and <code>TotalAmount</code>.</li>
+                            <li><strong>OrderDetail:</strong> Contains details of items in a transaction, including <code>OrderID</code>, <code>ProductID</code>, <code>Quantity</code>, and <code>Price</code>.</li>
+                        </ul>
+                        <ol class="ddl-key-points">
+
+                            <li>
+                                <strong>User Table</strong>
+                                <div class="text-center">
+                                    <img src="12.png" alt="User Table" class="img-fluid mt-3">
+                                    <p class="ddl-user-table">
+                                        In the Bojongswan Coffee App, the User table is defined using the <code>CREATE TABLE</code>command in SQL. The table is designed to store essential user information such as UserID, Name, and Email while ensuring data integrity through the use of constraints like the Primary Key.
+                                    </p>
+                                    <p class="ddl-user-constraints">
+                                        The design process begins with defining each column's data type and constraints. The <code>UserID</code> attribute is a VARCHAR(20) field, meaning it can hold up to 20 characters. It is further constrained as a Primary Key to enforce uniqueness. Similarly, the <code>Name</code> and <code>Email</code> attributes also use the VARCHAR(20) data type, allowing storage of textual data with a maximum length of 20 characters. 
+                                        Both columns are nullable, making them optional entries in the table
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <strong>Customer Table</strong>
+                                <div class="text-center">
+                                    <img src="13.png" alt="ddl1" class="img-fluid mt-3">
+                                    <p class="customer-ddl">
+                                        The Customer table is defined using the <code>CREATE TABLE</code> command in SQL. This table is designed to capture essential customer information, including CustomerID, Name, and ContactInfo, while ensuring data consistency through the application of constraints like the Primary Key.
+                                    </p>
+                                    <p class="customer-ddl-constraints">    
+                                        The design process starts by defining the data type and constraints for each column. The <code>CustomerID</code> column is defined as an <code>INT</code> data type, which stores numeric values and serves as the Primary Key. This constraint enforces uniqueness, ensuring that each customer record is distinct.
+                                        Additionally, the <code>Name</code> and <code>ContactInfo</code> columns use the <code>VARCHAR</code> data type, allowing storage of textual data. The <code>Name</code> field can hold up to 20 characters, whereas the <code>ContactInfo</code> field is limited to 15 characters. Both columns are nullable, which means they can be left empty if needed.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <strong>Order Detail Table</strong>
+                                <div class="text-center">
+                                    <img src="14.png" alt="ddl1" class="img-fluid mt-3">
+                                    <img src="15.png" alt="ddl1" class="img-fluid mt-3">
+                                    <p class="orderdetail-ddl">
+                                        The<code>OrderDetail</code> table in the Bojongswan Coffee App is designed to store details about items in individual sales transactions. This table captures critical information such as product details, 
+                                        quantity, and price, ensuring accurate and structured data management.
+                                    </p>
+                                    <p class="orderdetail-constraints">
+                                        Here are the attributes of the OrderDetail Table. <code>OrderID</code> Defined as an INT data type and serves as the Primary Key, ensuring that each record in the OrderDetail table is uniquely identifiable and prevents duplication.
+                                        <code>ProductName</code>Defined as a VARCHAR(100) data type, allowing up to 100 characters to store the product name involved in the order. This field is nullable, meaning it is optional.
+                                        <code>Quantity</code>Defined as an INT data type, capturing the quantity of the product ordered. It enables inventory tracking and ensures that order details reflect accurate amounts.
+                                        <code>Price</code>Defined as a DECIMAL(10,2) data type, allowing precise values with two decimal places to record the price of the product.
+                                    </p>
+                                    <p class="orderdetail-alter">
+                                        the <code>ALTER TABLE</code> SQL command was used to add the TransactionID column to the OrderDetail table. This column establishes a relationship between the OrderDetail table and the SalesTransaction table, ensuring that each order detail is linked to a valid transaction.
+                                    </p>
+                                    <p class="orderdetail-fk">
+                                        We first added the <code>TransactionID</code> column with the INT data type. Then, we defined a Foreign Key constraint to link <span class="bold-text-fk">OrderDetail</span> column with the <code>TransactionID</code> in the <span class="bold-text-fk">SalesTransaction</span> table.
+                                    </p>
+                                    
+                                </div>
+                            </li>
+
+                            <li>
+                                <strong>Sales Transaction Table</strong>
+                                <div class="text-center">
+                                    <img src="16.png" alt="ddl1" class="img-fluid mt-3">
+                                    <img src="17.png" alt="ddl1" class="img-fluid mt-3">
+                                    <p class="salestr-ddl">
+                                        The SalesTransaction Table is created using the <code>CREATE TABLE</code> SQL command to manage transaction records effectively. 
+                                        This table includes attributes such as TransactionID, Date, and TotalAmount, ensuring seamless tracking and organization of all sales-related data.
+                                    </p>
+                                    <p class="salestr-constraints">
+                                        The <code>TransactionID</code> column is defined with the <code>INT</code> data type and serves as the Primary Key, guaranteeing the uniqueness of each transaction. 
+                                        The <code>Date</code> column utilizes the DATE data type, allowing the system to store the specific date of each transaction. Finally, <code>TotalAmount</code> is assigned the DECIMAL(10,2) data type to handle precise monetary values, ensuring accurate financial records.
+                                    </p>
+                                    <p class="salestr-alter">
+                                        In addition to these attributes, the table establishes relationships with other entities in the database. Using the <code>ALTER TABLE</code> command, Foreign Key constraints are added to the UserID and CustomerID columns, linking the <span class="bold-text-tr">SalesTransaction</span> 
+                                        Table with the <span class="bold-text-tr">User</span> Table and the <span class="bold-text-tr">Customer</span> Table. This ensures that every transaction is associated with a valid user and customer, maintaining data integrity across the system.
+                                    </p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                    
+                    <div id="dml" class="content-section">
+                        <h4 class="fw-bold text-primary">Database DML</h4>
+                        <p class="dml-bridging">
+                            In the Database DML (Data Manipulation Language) section, we focus on the practical implementation of our database by inserting meaningful data into the predefined tables. This is primarily achieved using the <code>INSERT INTO</code> query alongside the <code>VALUES</code> clause. 
+                            These queries play a critical role in populating our database with the necessary records, ensuring the system is equipped to support real-world operations seamlessly.
+                        </p>
+                        <ol class="dml-key-points">
+                            <li>
+                                <strong>User Database</strong>
+                                <div class="text-center">
+                                    <img src="18.png" alt="dml1" class="img-fluid mt-3">
+                                    <p class="dml-user">
+                                        The User Database serves as the foundation for managing data related to stakeholders in the Bojongswan Coffee App, such as staff members. By utilizing the <code>INSERT INTO</code> query, user records are added with attributes like UserID, Name, and Email. 
+                                        This ensures efficient data management for operations such as maintaining stakeholder records, tracking sales transactions, and enabling role-based system access.
+                                        The <code>VALUES</code> query allows us to add new users to the system while adhering to specific requirements defined by attributes like UserID, Name, and Email. This ensures that all data entries align with the database structure, promoting consistency and accuracy across the system
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <strong>Customer Database</strong>
+                                <div class="text-center">
+                                    <img src="19.png" alt="dml1" class="img-fluid mt-3">
+                                    <p class="customer-dml">
+                                        The Customer table in the database is populated using the <code>INSERT INTO</code> command alongside the <code>VALUES</code> clause to record key customer information, such as CustomerID, Name, and ContactInfo. This functionality ensures that every customer visiting the coffee shop is logged into the system, enabling a comprehensive and structured database of customer records. 
+                                        Recording customer data offers significant benefits, such as improving personalized services, tracking customer visits and purchases, and supporting targeted marketing strategies. Additionally, it helps the coffee shop maintain a robust customer relationship management system, fostering loyalty and ensuring operational efficiency in catering to customer needs.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <strong>Order Detail Database</strong>
+                                <div class="text-center">
+                                    <img src="20.png" alt="dml1" class="img-fluid mt-3">
+                                    <p class="orderdetail-dml">
+                                        The OrderDetail table is populated using the <code>INSERT INTO</code> statement combined with the <code>VALUES</code> clause, allowing the addition of detailed information for each order, such as OrderID, ProductName, Quantity, Price, and the corresponding TransactionID. This enables the system to record every item included in a customer's order and associate it with a specific transaction. 
+                                        The implications of this process are significant for managing inventory, calculating revenue, and tracking sales performance. Furthermore, this data provides the foundation for analyzing <span class="bold-text-oddml">customer preferences</span>, such as identifying the most popular menu items based on order frequency. This insight can guide decisions for inventory stocking, promotional activities, and menu adjustments to align with customer demand.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <strong>Sales Transaction Database</strong>
+                                <div class="text-center">
+                                    <img src="21.png" alt="dml1" class="img-fluid mt-3">
+                                    <p class="salestr-dml">
+                                        The SalesTransaction table is a vital component of the database that records detailed information about each transaction. Using the <code>INSERT INTO</code> statement along with the <code>VALUES</code> clause, capturing attributes such as TransactionID, Date, TotalAmount, UserID, and CustomerID. This structure ensures that every transaction is uniquely identified and provides a comprehensive record of sales activities. 
+                                        The inclusion of UserID links each transaction to the staff member responsible for recording it, while CustomerID associates the transaction with the corresponding customer. This setup facilitates accountability and enables a clear audit trail for every sale. Additionally, analyzing the SalesTransaction data allows for insights into <span class="bold-text-stdml"> sales trends, peak business period, and customer purchasing behavior</span>,
+                                        which can inform strategic decisions for operational efficiency and marketing efforts.
+                                    </p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div id="database-sql-function" class="content-section">
+                        <h4 class="fw-bold text-primary">Database DML</h4>
+                        <p class="sql-bridging">
+                            In the Database DML (Data Manipulation Language) section, we focus on the practical implementation of our database by inserting meaningful data into the predefined tables. This is primarily achieved using the <code>INSERT INTO</code> query alongside the <code>VALUES</code> clause. 
+                            These queries play a critical role in populating our database with the necessary records, ensuring the system is equipped to support real-world operations seamlessly.
+                        </p>
+                        <ol class="sql-key-question">
+                            <li>
+                                <strong>SELECT function for specific purpose #1</strong>
+                                <div class="text-center">
+                                    <img src="24.png" class="img-fluid custom-image" id="s1-image" alt="sqlquestion">
+                                    <p class="sql-1">
+                                        <strong>Question:</strong>What are the name and email address of the user with ID 150111?
+                                    </p>
+                                    <p class="sql-1-1">
+                                        <strong>Answer:</strong> <code>SELECT</code> Name, Email <code>FROM</code> User <code>WHERE</code> UserID = 150111;
+                                    </p>
+                                    <img src="25.png" class="img-fluid custom-image" id="s1-1-image" alt="sqlquestion">
+                                </div>
+                            </li>
+
+                            <li>
+                                <strong>SELECT function for specific purpose #2</strong>
+                                <div class="text-center">
+                                    <img src="26.png" class="img-fluid custom-image" id="s1-image" alt="sqlquestion">
+                                    <p class="sql-1">
+                                        <strong>Question:</strong>What products and how many of each were ordered in transaction number 1?
+                                    </p>
+                                    <p class="sql-1-1">
+                                        <strong>Answer:</strong> <code>SELECT</code> ProductName, Quantity <code>FROM</code> orderdetail <code>WHERE</code> TransactionID = 1;
+                                    </p>
+                                    <img src="27.png" class="img-fluid custom-image" id="s1-1-image" alt="sqlquestion">
+                                </div>
+                            </li>
+
+                            <li>
+                                <strong>UPDATE Function #1</strong>
+                                <div class="text-center">
+                                    <img src="24.png" class="img-fluid custom-image" id="s1-image" alt="sqlquestion">
+                                    <p class="sql-1">
+                                        <strong>Question:</strong>Update the email address for a user with ID 150111 in a database to klopp@yahoo.com
+                                    </p>
+                                    <p class="sql-1-1">
+                                        <strong>Answer:</strong> <code>UPDATE</code> User <code>SET</code> Email = 'klopp@yahoo.com' <code>WHERE</code> UserID = 150111;
+                                    </p>
+                                    <img src="29.png" class="img-fluid custom-image" id="s1-1-image" alt="sqlquestion">
+                                </div>
+                            </li>
+
+                            <li>
+                                <strong>UPDATE Function #2</strong>
+                                <div class="text-center">
+                                    <img src="30.png" class="img-fluid custom-image" id="s1-image" alt="sqlquestion">
+                                    <p class="sql-1">
+                                        <strong>Question:</strong>Write an SQL statement to update the ContactInfo for the customer with CustomerID 2 to '555000'
+                                    </p>
+                                    <p class="sql-1-1">
+                                        <strong>Answer:</strong> <code>UPDATE</code> Customer <code>SET</code> ContactInfo = '555000' <code>WHERE</code> CustomerID = 2;
+                                    </p>
+                                    <img src="31.png" class="img-fluid custom-image" id="s1-1-image" alt="sqlquestion">
+                                </div>
+                            </li>
+
+                        </ol>
+                    </div>
+                
+                    <div id="conclusion" class="content-section">
+                        <h4 class="fw-bold text-primary">Conclusion</h4>
+                        <ol class="project-key-points"></ol>
+                        <div class="text-center">
+                            <img src="bjc.jpg" class="img-fluid mt-3">
+                        </div>
+                        <p>The Bojongswan Coffee App is a tailored SQL-driven solution addressing key operational challenges in inventory and financial management for small businesses. 
+                            By leveraging robust relational database design, the app provides a foundation for scalable, efficient, and data-driven operations. 
+                            This project highlights my expertise in designing and implementing practical database systems, demonstrating my ability to bridge technical skills and business needs. 
+                            It's a stepping stone toward empowering businesses to make informed, data-backed decisions while optimizing day-to-day processes
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll(".content-section");
+            const navLinks = document.querySelectorAll(".list-group-item");
+    
+            // Function to update the active link based on scroll position
+            const updateActiveLink = () => {
+                let current = null; // Store the current section ID
+                const scrollPosition = window.scrollY + 100; // Adjust for navbar height
+    
+                // Determine which section is in view
+                sections.forEach((section) => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+    
+                    if (
+                        scrollPosition >= sectionTop &&
+                        scrollPosition < sectionTop + sectionHeight
+                    ) {
+                        current = section.getAttribute("id");
+                    }
+                });
+    
+                // Update the active class for the correct sidebar link
+                navLinks.forEach((link) => {
+                    link.classList.remove("active");
+                    if (current && link.getAttribute("href").includes(current)) {
+                        link.classList.add("active");
+                    }
+                });
+    
+                // Remove active state if no section is found (at the very top)
+                if (!current) {
+                    navLinks.forEach((link) => link.classList.remove("active"));
+                }
+            };
+    
+            // Add scroll event listener to update active state
+            window.addEventListener("scroll", updateActiveLink);
+    
+            // Smooth scrolling and immediate active state update on click
+            navLinks.forEach((link) => {
+                link.addEventListener("click", function (e) {
+                    e.preventDefault(); // Prevent default behavior
+    
+                    const targetId = this.getAttribute("href").slice(1);
+                    const targetElement = document.getElementById(targetId);
+    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // Adjust for navbar height
+                        behavior: "smooth",
+                    });
+    
+                    // Immediately update active state
+                    navLinks.forEach((link) => link.classList.remove("active"));
+                    this.classList.add("active");
+                });
+            });
+        });
+    </script>
+    
+
+</body>
+</html>
